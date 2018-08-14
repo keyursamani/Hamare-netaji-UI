@@ -1,0 +1,166 @@
+<div class="banner">
+  <!--<img class="img-responsive" src="assets/Images/banner.jpg">-->
+  <div class="row wrap justify-content-center">
+    <div class="col-12 text-center">
+      <img class="netaji-image" src="assets/Images/netaji.png">
+    </div>
+    <div class="col-12 text-center mt-4">
+      <h1 class="text-center">Connecting India to their Leaders</h1>
+    </div>
+    <div class="col-md-8 mt-4">
+      <div class="input-group mb-3 pl-4 pr-4 serachBox">
+
+        <input [(ngModel)]="asyncSelected" style="height: 38px" placeholder="Search"  [typeahead]="dataSource"
+          (typeaheadLoading)="changeTypeaheadLoading($event)"  typeaheadWaitMs="1000" (typeaheadOnSelect)="typeaheadOnSelect($event)" [typeaheadOptionsLimit]="7"
+          spellcheck="false" typeaheadOptionField="profileDetails.firstName"  class="form-control">
+
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="searchApi()" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" style="padding-top:25px;">
+
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>
+          <strong>Trending Leaders</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-md-3 col-xs-12 col-sm-6 col-lg-3 mt-4 removerMargin" *ngFor="let item of trendingProfile;">
+        <div class="thumbnail ">
+          <a href="profile/{{item.id}}">
+            <div *ngIf="item.profileDetails.profilePic;else other_content">
+              <img src="{{item.profileDetails.profilePic}}" style="width:250px; height:auto;" />
+            </div>
+            <ng-template #other_content>
+              <img src="assets/Images/d.jpg" alt="Narendra Modi" style="width:250px; height:auto;">
+            </ng-template>
+          </a>
+          <div class="caption text-center">
+            <p class="name">
+              <strong>{{item.profileDetails.firstName}}   {{item.profileDetails.lastName}}</strong>
+            </p>
+            <p class="heading"> {{item.profileDetails.position}}</p>
+            <p class="title">{{item.profileDetails.organisation}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row paddingRemove">
+  <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
+    <img class="img-responsive advertisment" src="assets/Images/BusinessCard.PNG" alt="Hamare Netaji kahen">
+  </div>
+  <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6" style="text-align: right;">
+    <img class="img-responsive advertisment" src="assets/Images/BusinessCard.PNG" alt="Hamare Netaji kahen">
+  </div>
+</div>
+
+<section class="paddingRemove" style="margin-top: 15px;">
+  <div class="container jumbotron interview">
+
+    <div class="row">
+      <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 border-right setlayout">
+        <div class="row d-flex justify-content-between align-items-center mb-3">
+
+          <span>
+            <strong>INTERVIEW</strong>
+          </span>
+          <span>
+           
+          </span>
+
+        </div>
+        <div class="row">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oGERc5Bo6Xg?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 border-right setlayout">
+        <div class="row d-flex justify-content-between align-items-center mb-3">
+
+          <span>
+            <strong>INTERVIEW</strong>
+          </span>
+          <span>
+           
+          </span>
+
+        </div>
+        <div class="row">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uz2KJUYTeAI?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 setlayout">
+        <div class="row d-flex justify-content-between align-items-center mb-3">
+
+          <span>
+            <strong>HAMARE NETAJI KAHIN</strong>
+          </span>
+          <span>
+            <strong>View All</strong>
+          </span>
+        </div>
+        <div class="row  border-bottom" style="margin-bottom: 15px;">
+
+          <div class="timeline-badge ">
+            <i class="glyphicon glyphicon-check"></i>
+          </div>
+          <div class="timeline-panel">
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis.
+                Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem
+                é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis
+                i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+              </p>
+            </div>
+            <div class="timeline-heading statement">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+
+          </div>
+        </div>
+        <div class="row  border-bottom" style="margin-bottom: 15px;">
+
+          <div class="timeline-badge">
+            <i class="glyphicon glyphicon-check"></i>
+          </div>
+          <div class="timeline-panel">
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis.
+                Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem
+                é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis
+                i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+              </p>
+            </div>
+            <div class="timeline-heading" style="float: right;">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+          </div>
+
+
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</section>
+<div class="row tileLayout">
+  <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+    <img class="img-responsive" src="assets/Images/BusinessCard.PNG" alt="Hamare Netaji kahen" style="width:50%; height:192px">
+  </div>
+</div>
